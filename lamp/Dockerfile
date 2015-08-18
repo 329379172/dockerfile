@@ -13,7 +13,7 @@ RUN cd php-5.6.12 && make
 RUN cd php-5.6.12 && make install
 ADD nginx/nginx.conf /etc/nginx/
 ADD nginx/zfblog.conf /etc/nginx/conf.d/
-ADD php-fpm/www.conf /etc/php-fpm/
+ADD php-fpm/www.conf /etc/php-fpm.d/
 ADD nginx/myadmin.conf /etc/nginx/conf.d/
 RUN groupadd www
 RUN useradd www -g www
