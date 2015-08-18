@@ -11,5 +11,14 @@ RUN tar -xvf php-5.6.12.tar
 RUN cd php-5.6.12 && ./configure  --enable-shared --with-libxml-dir --with-gd --with-openssl --enable-mbstring --with-mcrypt --with-mysqli --with-mysql --enable-opcache --enable-mysqlnd --enable-zip --with-zlib-dir --with-pdo-mysql --with-jpeg-dir --with-freetype-dir --with-curl --without-pdo-sqlite --without-sqlite3
 RUN cd php-5.6.12 && make
 RUN cd php-5.6.12 && make install
+ADD nginx/nginx.conf /etc/nginx/
+ADD nginx/zfblog.conf /etc/nginx/conf.d/
+ADD php-fpm/www.conf /etc/php-fpm/
+ADD nginx/myadmin.conf /etc/nginx/conf.d/
+RUN groupadd www
+RUN useradd www -g www
+ADD start.sh /home/start.sh
+ENV PATH /home:$PATH
 EXPOSE 80
+CMD ["start.sh"]
 
