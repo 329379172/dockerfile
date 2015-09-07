@@ -1,12 +1,12 @@
 php:
-    image: 'xiaoqiu/php'
+    build: ./php/
     ports:
         - "9000:9000"
     volumes:
         - ./www:/usr/share/nginx/html
         - ./php/php-fpm:/etc/php-fpm.d
-zfblog:
-    image: 'xiaoqiu/nginx'
+nginx:
+    build: ./nginx/
     ports:
         - "80:80"
         - "81:81"
