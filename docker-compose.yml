@@ -1,0 +1,19 @@
+php:
+    image: 'xiaoqiu/php'
+    ports:
+        - "9000:9000"
+    volumes:
+        - ./www:/usr/share/nginx/html
+        - ./php/php-fpm:/etc/php-fpm.d
+zfblog:
+    image: 'xiaoqiu/nginx'
+    ports:
+        - "80:80"
+        - "81:81"
+    volumes:
+        - ./www:/usr/share/nginx/html
+        - ./www/logs:/var/log/nginx
+        - ./nginx/site:/etc/nginx/conf.d
+    links:
+        - php    
+        
