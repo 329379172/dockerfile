@@ -11,6 +11,7 @@ nginx:
     ports:
         - "80:80"
         - "81:81"
+        - "8000:8000"
     volumes:
         - ./www:/usr/share/nginx/html
         - ./www/logs:/var/log/nginx
