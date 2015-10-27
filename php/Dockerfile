@@ -10,7 +10,7 @@ RUN yum install -y php-gd
 RUN yum install -y php-mcrypt
 #RUN wget http://cn2.php.net/distributions/php-5.6.12.tar.xz
 #ENV PHP_VERSION php-7.0.0RC3
-ENV PHP_VERSION php-7.0.0RC4
+ENV PHP_VERSION php-7.0.0RC5
 RUN wget https://downloads.php.net/~ab/$PHP_VERSION.tar.xz
 RUN xz -d $PHP_VERSION.tar.xz
 RUN tar -xvf $PHP_VERSION.tar
