@@ -14,7 +14,7 @@ ENV PHP_VERSION php-7.0.0RC5
 RUN wget https://downloads.php.net/~ab/$PHP_VERSION.tar.xz
 RUN xz -d $PHP_VERSION.tar.xz
 RUN tar -xvf $PHP_VERSION.tar
-RUN cd $PHP_VERSION && ./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/php/etc --enable-fpm --enable-shared --with-libxml-dir  --with-gd --with-openssl --enable-mbstring --with-mcrypt --with-mysqli --enable-opcache --enable-mysqlnd --enable-zip --with-zlib-dir --with-pdo-mysql --with-jpeg-dir --with-freetype-dir --with-curl --without-pdo-sqlite --without-sqlite3
+RUN cd $PHP_VERSION && ./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/php/etc --enable-fpm --enable-shared --with-libxml-dir --with--mysql --with-gd --with-openssl --enable-mbstring --with-mcrypt --with-mysqli --enable-opcache --enable-mysqlnd --enable-zip --with-zlib-dir --with-pdo-mysql --with-jpeg-dir --with-freetype-dir --with-curl --without-pdo-sqlite --without-sqlite3
 RUN cd $PHP_VERSION && make
 RUN cd $PHP_VERSION && make install
 RUN mv /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
