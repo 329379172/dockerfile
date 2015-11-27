@@ -22,8 +22,9 @@ RUN ln -s /usr/local/php/sbin/php-fpm /usr/sbin/php-fpm
 RUN cat /usr/local/php/etc/php-fpm.d/www.conf.default
 RUN groupadd www
 RUN useradd www -g www
-RUN yum install -y php-mbstring
-RUN yum install -y php-redis
+RUN yum clean all
+#RUN yum install -y php-mbstring
+#RUN yum install -y php-redis
 RUN cd /var/lib/php/ && mkdir session
 RUN chown -R www:www /var/lib/php
 #RUN yum install -y supervisor

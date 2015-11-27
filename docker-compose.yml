@@ -2,12 +2,12 @@ redis:
     privileged: true
     build: ./redis/
     ports:
-        - "6379:6379"        
+        - "127.0.0.1:6379:6379"        
 mysql:
     privileged: true
     build: ./mysql/
     ports:
-        - "3306:3306"
+        - "127.0.0.1:3306:3306"
     environment:
         MYSQL_ROOT_PASSWORD: "123456"    
 php:
@@ -27,13 +27,14 @@ nginx:
     build: ./nginx/
     ports:
         - "80:80"
-        - "81:81"
+        #- "81:81"
         - "8000:8000"
-        - "82:82"
-        - "83:83"
+       # - "82:82"
+       # - "83:83"
     volumes:
         - ./www:/usr/share/nginx/html
         - ./www/logs:/var/log/nginx
         - ./nginx/site:/etc/nginx/conf.d
+        - ./nginx/conf:/etc/nginx/conf
     links:
         - php    

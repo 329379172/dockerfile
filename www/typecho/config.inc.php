@@ -54,9 +54,9 @@ Typecho_Common::init();
 /** 定义数据库参数 */
 $db = new Typecho_Db('Pdo_Mysql', 'typecho_');
 $db->addServer(array (
-  'host' => '123.57.144.6',
+  'host' => 'mysql',
   'user' => 'root',
-  'password' => 'linfeiyang',
+  'password' => '123456',
   'charset' => 'utf8',
   'port' => '3306',
   'database' => 'typecho',
